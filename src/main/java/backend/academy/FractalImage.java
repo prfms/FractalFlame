@@ -1,12 +1,12 @@
 package backend.academy;
 
 import backend.academy.Transformations.Transformation;
-import lombok.Getter;
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.concurrent.Executors;
+import lombok.Getter;
 import static backend.academy.AffineTransformation.createRandomAffineTransformation;
 
 public class FractalImage {
@@ -20,7 +20,7 @@ public class FractalImage {
     private final double xMax;
     private double yMin = -1;
     private double yMax = 1;
-    private static final int skipIterations = -20;
+    private static final int SKIP_ITERATIONS = -20;
     @Getter
     private long spentTimeSingle;
     @Getter
@@ -65,7 +65,7 @@ public class FractalImage {
         double x = random.nextDouble(xMin, xMax);
         double y = random.nextDouble(yMin, yMax);
 
-        for (int step = skipIterations; step < iterationCount; step++) {
+        for (int step = SKIP_ITERATIONS; step < iterationCount; step++) {
             int trNum = random.nextInt(transformations.size());
             int affNum = random.nextInt(affineCount);
 
