@@ -60,6 +60,7 @@ public class Config {
     public int getSymmetry() {
         return symmetry;
     }
+
     public void setSymmetry(int symmetry) {
         this.symmetry = symmetry;
     }
