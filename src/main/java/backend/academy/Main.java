@@ -18,6 +18,7 @@ public class Main {
         int iterationCount = config.getIterationCount();
         int affineCount = config.getAffineCount();
         int samples = config.getSamples();
+        int symmetry = config.getSymmetry();
 
         log.info("Running single-threaded version...");
         FractalImage fractalImageSingleThread = new FractalImage(
@@ -26,6 +27,7 @@ public class Main {
             iterationCount,
             affineCount,
             samples,
+            symmetry,
             new SphericalTransformation(),
             new HeartTransformation()
         );
@@ -42,6 +44,7 @@ public class Main {
             iterationCount,
             affineCount,
             samples,
+            symmetry,
             new SphericalTransformation(),
             new HeartTransformation()
         );

@@ -10,6 +10,7 @@ public class Config {
     private int iterationCount;
     private int affineCount;
     private int samples;
+    private int symmetry;
 
     public int getHeight() {
         return height;
@@ -54,5 +55,12 @@ public class Config {
     public static Config loadConfig(String filename) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
         return mapper.readValue(new File(filename), Config.class);
+    }
+
+    public int getSymmetry() {
+        return symmetry;
+    }
+    public void setSymmetry(int symmetry) {
+        this.symmetry = symmetry;
     }
 }

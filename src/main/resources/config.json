@@ -3,5 +3,6 @@
     "width": 1920,
     "iterationCount": 100000,
     "affineCount": 7,
-    "samples": 100
+    "samples": 100,
+    "symmetry": 3
 }
