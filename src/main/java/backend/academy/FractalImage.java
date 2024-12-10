@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.concurrent.Executors;
+import java.util.concurrent.ThreadLocalRandom;
 import lombok.Getter;
 import static backend.academy.AffineTransformation.createRandomAffineTransformation;
 
@@ -129,7 +130,7 @@ public class FractalImage {
 
     public Pixel[][] createMultiThread() {
         long startTime = System.currentTimeMillis();
-        Random random = new Random();
+        Random random = ThreadLocalRandom.current();
         List<AffineTransformation> affineTransformations = createAffineTransformations();
 
         try (var service = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors())) {

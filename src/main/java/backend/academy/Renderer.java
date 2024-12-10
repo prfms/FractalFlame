@@ -38,7 +38,9 @@ public class Renderer {
 
         for (int row = 0; row < width; row++) {
             for (int col = 0; col < height; col++) {
-                pixel(row, col).normal(pixel(row, col).normal() / max);
+                if (max != 0.0) {
+                    pixel(row, col).normal(pixel(row, col).normal() / max);
+                }
                 pixel(row, col).r((int) (pixel(row, col).r() * pow(pixel(row, col).normal(), (1.0 / gamma))));
                 pixel(row, col).g((int) (pixel(row, col).g() * pow(pixel(row, col).normal(), (1.0 / gamma))));
                 pixel(row, col).b((int) (pixel(row, col).b() * pow(pixel(row, col).normal(), (1.0 / gamma))));
