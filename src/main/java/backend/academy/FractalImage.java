@@ -130,12 +130,14 @@ public class FractalImage {
 
     public Pixel[][] createMultiThread() {
         long startTime = System.currentTimeMillis();
-        Random random = ThreadLocalRandom.current();
         List<AffineTransformation> affineTransformations = createAffineTransformations();
 
         try (var service = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors())) {
             for (int i = 0; i < samples; ++i) {
-                service.submit(() -> processPoint(affineTransformations, random));
+                service.submit(() -> {
+                    Random random = ThreadLocalRandom.current();
+                    processPoint(affineTransformations, random);
+                });
             }
         }
 
